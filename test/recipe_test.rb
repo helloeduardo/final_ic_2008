@@ -61,13 +61,6 @@ class RecipeTest < Minitest::Test
     recipe1.add_ingredient(ingredient2, 8)
     recipe1.add_ingredient(ingredient1, 2)
 
-    expected = [
-      {:ingredient => 'Macaroni', :amount => '8 oz'},
-      {:ingredient => 'Cheese', :amount => '2 C'}
-    ]
-
-    assert_equal expected, recipe1.ingredient_details
-
     expected = {
       :ingredients => [
         {:ingredient => 'Macaroni', :amount => '8 oz'},
@@ -77,5 +70,22 @@ class RecipeTest < Minitest::Test
     }
 
     assert_equal expected, recipe1.details
+  end
+
+  def test_it_has_ingredient_details
+    recipe1 = Recipe.new("Mac and Cheese")
+
+    ingredient1 = Ingredient.new({name: "Cheese", unit: "C", calories: 100})
+    ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
+
+    recipe1.add_ingredient(ingredient2, 8)
+    recipe1.add_ingredient(ingredient1, 2)
+
+    expected = [
+      {:ingredient => 'Macaroni', :amount => '8 oz'},
+      {:ingredient => 'Cheese', :amount => '2 C'}
+    ]
+
+    assert_equal expected, recipe1.ingredient_details
   end
 end
