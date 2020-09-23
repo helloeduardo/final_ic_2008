@@ -21,4 +21,13 @@ class CookBook
   def highest_calorie_meal
     recipes.max_by(&:total_calories)
   end
+
+  def summary
+    recipes.map do |recipe|
+      {
+        name: recipe.name,
+        details: recipe.details
+      }
+    end
+  end
 end

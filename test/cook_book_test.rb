@@ -89,8 +89,8 @@ class CookBookTest < Minitest::Test
     ingredient1 = Ingredient.new({name: "Cheese", unit: "C", calories: 100})
     ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
 
-    recipe1.add_ingredient(ingredient1, 2)
     recipe1.add_ingredient(ingredient2, 8)
+    recipe1.add_ingredient(ingredient1, 2)
 
     recipe2 = Recipe.new("Burger")
     ingredient3 = Ingredient.new({name: "Ground Beef", unit: "oz", calories: 100})
