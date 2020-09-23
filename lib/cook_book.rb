@@ -9,4 +9,9 @@ class CookBook
     @recipes << recipe
   end
 
+  def ingredients
+    recipes.reduce([]) do |ingredients, recipe|
+      ingredients << recipe.ingredients.map(&:name)
+    end.flatten.uniq
+  end
 end
