@@ -10,9 +10,9 @@ class CookBook
   end
 
   def ingredients
-    recipes.reduce([]) do |ingredients, recipe|
-      ingredients << recipe.ingredients.map(&:name)
-    end.flatten.uniq
+    recipes.flat_map do |recipe|
+      recipe.ingredients.map(&:name)
+    end.uniq
   end
 
   def highest_calorie_meal
