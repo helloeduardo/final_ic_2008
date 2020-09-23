@@ -24,10 +24,8 @@ class CookBook
 
   def summary
     recipes.map do |recipe|
-      {
-        name: recipe.name,
-        details: recipe.details
-      }
+      { name: recipe.name,
+        details: recipe.details }
     end
   end
 end

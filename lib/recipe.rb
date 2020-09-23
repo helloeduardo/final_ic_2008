@@ -21,18 +21,14 @@ class Recipe
   end
 
   def details
-    {
-      ingredients: ingredient_details,
-      total_calories: total_calories
-    }
+    { ingredients: ingredient_details,
+      total_calories: total_calories }
   end
 
   def ingredient_details
     ingredients_required.map do |ingredient, amount|
-      {
-        ingredient: ingredient.name,
-        amount: "#{amount} #{ingredient.unit}"
-      }
+      { ingredient: ingredient.name,
+        amount: "#{amount} #{ingredient.unit}" }
     end
   end
 end
